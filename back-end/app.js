@@ -2,6 +2,8 @@
 const cors = require("cors");
 const express = require("express");
 
+const raffleController = require("./controllers/raffleController.js")
+
 // CONFIGURATION
 const app = express();
 
@@ -11,26 +13,32 @@ app.use(express.json()); // Parse incoming JSON
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("Hello, world!");
+  res.send("Hello, welcome to the Raffle App!");
 });
+
+app.use("/raffles", raffleController)
 
 /////////////////////////////////////
 // REMOVE AFTER SUCCESSFUL DEPLOYMENT
 /////////////////////////////////////
-const db = require("./db/dbConfig.js");
+// const db = require("./db/dbConfig.js");
 
-app.get("/test", async (req, res) => {
-  try {
-    const allDays = await db.any("SELECT * FROM test");
-    res.json(allDays);
-  } catch (err) {
-    res.json(err);
-  }
-});
+// app.get("/test", async (req, res) => {
+//   try {
+//     const allDays = await db.any("SELECT * FROM test");
+//     res.json(allDays);
+//   } catch (err) {
+//     res.json(err);
+//   }
+// });
 
 /////////////////////////////////////
 // REMOVE AFTER SUCCESSFUL DEPLOYMENT
 /////////////////////////////////////
+
+app.get("*", (req, res) => {
+  res.status(404).send("Page not found");
+});
 
 // EXPORT
 module.exports = app;

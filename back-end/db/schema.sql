@@ -1,11 +1,23 @@
-DROP DATABASE IF EXISTS template_test_dev;
-CREATE DATABASE template_test_dev;
+DROP DATABASE IF EXISTS take_home_dev;
+CREATE DATABASE take_home_dev;
 
-\c template_test_dev;
+\c take_home_dev;
 
-DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS participants;
+DROP TABLE IF EXISTS raffles;
 
-CREATE TABLE test (
+
+CREATE TABLE participants (
     id SERIAL PRIMARY KEY, 
-    name TEXT
+    fname TEXT NOT NULL,
+    lname TEXT NOT NULL,
+    email TEXT NOT NULL
+);
+
+CREATE TABLE raffles (
+    id SERIAL PRIMARY KEY, 
+    rname TEXT NOT NULL,
+    -- date_created TIMESTAMP NOT NULL,
+    -- date-raffled TIMESTAMP NOT NULL,
+    secret_token TEXT NOT NULL
 );
