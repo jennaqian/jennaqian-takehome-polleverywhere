@@ -7,17 +7,19 @@ DROP TABLE IF EXISTS participants;
 DROP TABLE IF EXISTS raffles;
 
 
-CREATE TABLE participants (
-    id SERIAL PRIMARY KEY, 
-    fname TEXT NOT NULL,
-    lname TEXT NOT NULL,
-    email TEXT NOT NULL
-);
-
 CREATE TABLE raffles (
     id SERIAL PRIMARY KEY, 
     rname TEXT NOT NULL,
     -- date_created TIMESTAMP NOT NULL,
     -- date-raffled TIMESTAMP NOT NULL,
     secret_token TEXT NOT NULL
+);
+
+CREATE TABLE participants (
+    id SERIAL PRIMARY KEY, 
+    raffleid INTEGER REFERENCES raffles (id)
+    ON DELETE CASCADE,
+    fname TEXT NOT NULL,
+    lname TEXT NOT NULL,
+    email TEXT NOT NULL
 );
