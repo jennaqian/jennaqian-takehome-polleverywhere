@@ -3,7 +3,6 @@ import axios from "axios"
 import { Navigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
-// console.log(API)
 
 export default function NewRaffleForm() {
   const [raffle, setRaffle] = useState({
@@ -19,7 +18,7 @@ export default function NewRaffleForm() {
     e.preventDefault();
     axios.post(`${API}/raffles`, raffle)
         .then(res => {
-            // console.log(res)
+            console.log(res)
             
         })
         .catch(error => console.log(error))
