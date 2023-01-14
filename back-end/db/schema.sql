@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS raffles;
 CREATE TABLE raffles (
     id SERIAL PRIMARY KEY, 
     rname TEXT NOT NULL,
-    -- date_created TIMESTAMP NOT NULL,
+    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     -- date-raffled TIMESTAMP NOT NULL,
     secret_token TEXT NOT NULL
 );
