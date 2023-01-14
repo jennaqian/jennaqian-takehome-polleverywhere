@@ -3,6 +3,7 @@ const cors = require("cors");
 const express = require("express");
 
 const raffleController = require("./controllers/raffleController.js")
+const participantController = require("./controllers/participantController.js")
 
 // CONFIGURATION
 const app = express();
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/raffles", raffleController)
+app.use("/participants", participantController)
 
 /////////////////////////////////////
 // REMOVE AFTER SUCCESSFUL DEPLOYMENT
