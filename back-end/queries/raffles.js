@@ -39,11 +39,21 @@ const getAllParticpants = async (raffle_id)=> {
   }
 }
 
-// const createP
+const createParticipant = async (body, raffleid) => {
+  try {
+    const newParticipant = await db.one(
+      "INSERT INTO participants (fname, lname, email, raffleid) VALUES ($1,$2,$3,$4) RETURNING *", 
+      [body.fname, body.lname, body.email, raffleid])
+    return newParticipant;
+  } catch (error) {
+    return error
+  }
+}
 
 module.exports = {
   getAllRaffles,
   getARaffle,
   createRaffle,
   getAllParticpants,
+  createParticipant,
 };

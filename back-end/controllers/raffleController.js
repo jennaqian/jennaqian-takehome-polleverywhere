@@ -1,6 +1,6 @@
 const express = require("express");
 const raffles = express.Router();
-const {getAllRaffles, getARaffle, createRaffle, getAllParticpants } = require("../queries/raffles.js");
+const {createParticipant, getAllRaffles, getARaffle, createRaffle, getAllParticpants } = require("../queries/raffles.js");
 
 raffles.get("/", async (req, res) => {
   try {
@@ -38,6 +38,20 @@ raffles.get("/:id/participants", async (req, res) => {
     res.status(200).json(participants);
   } catch (error) {
     res.status(500).json({error: "server error"})
+  }
+})
+
+raffles.post("/:id/participants", async (req, res) => {
+  try {
+    const {id} = req.params
+    const {body} = req
+    console.log(id, body)
+    const newParticipant = await createParticipant(body,id)
+    console.log(newParticipant)
+    res.status(200).json(newParticipant)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({error: "creation error"})
   }
 })
 
