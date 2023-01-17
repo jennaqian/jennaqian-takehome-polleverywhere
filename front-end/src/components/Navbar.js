@@ -1,7 +1,14 @@
-export default function Navbar (){
+import { Link } from "react-router-dom"
+
+export default function Navbar ({id}){
+
     return(
         <nav>
-            <h1>RAFFLE APP</h1>
+                <Link to={`/`}>All Raffles</Link>
+                <Link to={`/raffles/${id}`}>Register</Link>
+                <Link to={`/raffles/${id}/participants`}>Participants</Link>
+                <Link to={`/raffles/${id}/winner`}>Pick Winner</Link>
         </nav>
     )
+    
 }

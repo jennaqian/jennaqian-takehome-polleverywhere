@@ -1,6 +1,9 @@
 const express = require("express");
 const raffles = express.Router();
-const {getAllRaffles, getARaffle, createRaffle, } = require("../queries/raffles.js");
+const {getAllRaffles, getARaffle, createRaffle, getAllParticpants } = require("../queries/raffles.js");
+
+// const participantsController = require("./participantsController.js")
+// raffles.use("/:raffleId/participants", participantsController)
 
 raffles.get("/", async (req, res) => {
   try {
@@ -30,5 +33,15 @@ raffles.get("/:id", async (req, res) => {
     res.status(500).json({ error: "raffle not found" });
   }
 });
+
+raffles.get("/:id/participants", async (req, res) => {
+  try {
+    const {id} = req.params;
+    const participants = await getAllParticpants(id);
+    res.status(200).json(participants);
+  } catch (error) {
+    res.status(500).json({error: "server error"})
+  }
+})
 
 module.exports = raffles;

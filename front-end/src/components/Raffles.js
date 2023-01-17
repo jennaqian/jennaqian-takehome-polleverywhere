@@ -11,7 +11,7 @@ export default function Raffles() {
         axios.get(`${API}/raffles`)
             .then((res) => {
                 let raffleList = res.data.map((elem) => {
-                    return {rname: elem.rname, date_created: elem.date_created}
+                    return {id: elem.id, rname: elem.rname, date_created: elem.date_created}
                 })
                setRaffles(raffleList);
             })
@@ -20,7 +20,7 @@ export default function Raffles() {
   return (
     <div>
       <h2>All Raffles:</h2>
-      {raffles.map((elem,i) => <Raffle rname = {elem.rname} date_created = {elem.date_created} key={i}/>)}
+      {raffles.map((elem,i) => <Raffle id = {elem.id} rname = {elem.rname} date_created = {elem.date_created} key={i}/>)}
     </div>
   );
 }
