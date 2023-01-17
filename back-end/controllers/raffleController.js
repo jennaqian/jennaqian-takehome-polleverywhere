@@ -2,9 +2,6 @@ const express = require("express");
 const raffles = express.Router();
 const {getAllRaffles, getARaffle, createRaffle, getAllParticpants } = require("../queries/raffles.js");
 
-// const participantsController = require("./participantsController.js")
-// raffles.use("/:raffleId/participants", participantsController)
-
 raffles.get("/", async (req, res) => {
   try {
     const allRaffles = await getAllRaffles();

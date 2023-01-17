@@ -2,7 +2,7 @@ const db = require("../db/dbConfig.js");
 
 const getAllRaffles = async () => {
   try {
-    const allRaffles = await db.any("SELECT * FROM raffles");
+    const allRaffles = await db.any("SELECT * FROM raffles ORDER BY date_created DESC");
     return allRaffles;
   } catch (error) {
     return error;
@@ -38,6 +38,8 @@ const getAllParticpants = async (raffle_id)=> {
     return error;
   }
 }
+
+// const createP
 
 module.exports = {
   getAllRaffles,

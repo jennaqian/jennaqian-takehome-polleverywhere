@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-export default function NewRaffleForm() {
+export default function NewRaffleForm({setNewRaffleCreated}) {
   const [raffle, setRaffle] = useState({
     rname: "",
     secret_token: "",
@@ -17,10 +17,13 @@ export default function NewRaffleForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post(`${API}/raffles`, raffle)
-        .then(res => {
-            console.log(res)
-            
-        })
+        .then(
+            setRaffle({
+              rname: "",
+              secret_token: "",
+            }),
+            setNewRaffleCreated(true)
+        )
         .catch(error => console.log(error))
   }
 

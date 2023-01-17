@@ -4,9 +4,9 @@ import Raffle from "../components/Raffle.js";
 
 const API = process.env.REACT_APP_API_URL;
 
-export default function Raffles() {
+export default function Raffles({newRaffleCreated, setNewRaffleCreated}) {
     const [raffles, setRaffles] = useState([]);
-
+// console.log(newRaffleCreated)
     useEffect(()=> {
         axios.get(`${API}/raffles`)
             .then((res) => {
@@ -14,8 +14,11 @@ export default function Raffles() {
                     return {id: elem.id, rname: elem.rname, date_created: elem.date_created}
                 })
                setRaffles(raffleList);
-            })
-    },[]);
+            });
+            return () =>{
+              setNewRaffleCreated(false)
+            }
+    },[newRaffleCreated]);
 
   return (
     <div>

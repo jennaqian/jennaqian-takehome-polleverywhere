@@ -3,7 +3,6 @@ const cors = require("cors");
 const express = require("express");
 
 const raffleController = require("./controllers/raffleController.js")
-const participantController = require("./controllers/participantsController.js")
 
 // CONFIGURATION
 const app = express();
