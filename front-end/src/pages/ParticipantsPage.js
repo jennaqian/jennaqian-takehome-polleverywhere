@@ -25,7 +25,7 @@ export default function ParticipantsPage (){
             <input placeholder="Search Here!"></input>
 
             <ul>
-                {participants.map(elem=> <Participant pId={elem.id} fname={elem.fname} lname={elem.lname} email={elem.email}/>)} 
+                {participants.map(elem=> <Participant key={elem.id} pId={elem.id} fname={elem.fname} lname={elem.lname} email={elem.email}/>)} 
             </ul>
         </div>
     )

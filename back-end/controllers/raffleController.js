@@ -45,12 +45,10 @@ raffles.post("/:id/participants", async (req, res) => {
   try {
     const {id} = req.params
     const {body} = req
-    console.log(id, body)
+
     const newParticipant = await createParticipant(body,id)
-    console.log(newParticipant)
     res.status(200).json(newParticipant)
   } catch (error) {
-    console.log(error)
     res.status(500).json({error: "creation error"})
   }
 })
