@@ -72,3 +72,20 @@ button {
     padding: 5px;
     font-size: 20px;
 }
+
+.navbar{
+    background-color: orange;
+    height: 50px;
+    width: 800px;
+    margin: 5px auto;
+}
+.navbar-links{
+    font-size: 35px;
+    text-decoration: none;
+    margin: 20px 15px;
+    color: white;
+}
+/* .navbar-links :hover{
+    background-color: white;
+    color: orange;
+} */
