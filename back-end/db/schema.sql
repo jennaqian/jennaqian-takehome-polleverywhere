@@ -19,6 +19,7 @@ CREATE TABLE participants (
     id SERIAL PRIMARY KEY, 
     raffleid INTEGER REFERENCES raffles (id)
     ON DELETE CASCADE,
+    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     fname TEXT NOT NULL,
     lname TEXT NOT NULL,
     email TEXT NOT NULL,

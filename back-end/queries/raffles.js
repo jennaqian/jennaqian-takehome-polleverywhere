@@ -32,7 +32,7 @@ const getARaffle = async (id) => {
 
 const getAllParticpants = async (raffle_id)=> {
   try {
-    const allParticipants = await db.any("SELECT * FROM participants WHERE raffleid=$1",raffle_id)
+    const allParticipants = await db.any("SELECT * FROM participants WHERE raffleid=$1 ORDER BY date_created DESC",raffle_id)
     return allParticipants;
   } catch (error) {
     return error;
