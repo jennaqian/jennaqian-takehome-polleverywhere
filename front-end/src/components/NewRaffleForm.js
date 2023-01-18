@@ -29,31 +29,33 @@ export default function NewRaffleForm({setNewRaffleCreated}) {
   const { rname, secret_token } = raffle;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="new-raffle-form">
       <h1>New Raffle:</h1>
 
-      <div>
-        <label htmlFor="rname">Raffle Name: *</label>
-        <input
-          id="rname"
-          type="text"
-          value={rname}
-          placeholder="Enter raffle name..."
-          onChange={handleTextChange}
-          required
-        />
-      </div>
+      <div className="new-raffle-form-input">
+        <div>
+          <label htmlFor="rname">Raffle Name: *</label>
+          <input
+            id="rname"
+            type="text"
+            value={rname}
+            placeholder="Enter raffle name..."
+            onChange={handleTextChange}
+            required
+          />
+        </div>
 
-      <div>
-        <label htmlFor="secret_token">Raffle Secret Token: *</label>
-        <input
-          id="secret_token"
-          type="text"
-          value={secret_token}
-          placeholder="Enter token..."
-          onChange={handleTextChange}
-          required
-        />
+        <div>
+          <label htmlFor="secret_token">Raffle Secret Token: *</label>
+          <input
+            id="secret_token"
+            type="text"
+            value={secret_token}
+            placeholder="Enter token..."
+            onChange={handleTextChange}
+            required
+          />
+        </div>
       </div>
 
       <h3>

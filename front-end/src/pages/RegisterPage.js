@@ -11,10 +11,11 @@ export default function RegisterPage (){
         fname: "",
         lname: "",
         email: "",
+        phone: "",
     })
 
     const handleTextChange = (e) => {
-        setParticipant({...participant, [e.target.id]: [e.target.value]})
+        setParticipant({...participant, [e.target.id]: e.target.value})
     }
 
     const handleSubmit = (e) => {
@@ -24,7 +25,16 @@ export default function RegisterPage (){
             .then((res) => console.log(res))
     }
 
-    const {fname, lname, email} = participant;
+    const handleReset = ()=> {
+        setParticipant({
+            fname: "",
+            lname: "",
+            email: "",
+            phone: "",
+        })
+    }
+
+    const {fname, lname, email, phone} = participant;
 
     return(
         <div>
@@ -42,8 +52,11 @@ export default function RegisterPage (){
                 <label htmlFor="email">Email: </label>
                 <input type="text" id="email" value={email} onChange={handleTextChange} required/>
 
+                <label htmlFor="phone">Phone: </label>
+                <input type="number" id="phone" value={phone} onChange={handleTextChange} />
+
                 <button>Submit</button>
-                <button>Reset</button>
+                <button onClick={handleReset}>Reset</button>
             </form>
         </div>
     )

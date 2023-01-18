@@ -1,0 +1,26 @@
+body{
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 30px;
+    text-decoration: none; 
+    color: orange;
+}
+
+
+/* .home-page {
+    border: 1px solid black; 
+} */
+
+.new-raffle-form{
+    border: 1px solid black;
+}
+
+.new-raffle-form-input{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+}

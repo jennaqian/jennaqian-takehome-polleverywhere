@@ -14,7 +14,6 @@ export default function ParticipantsPage (){
     useEffect(()=> {
         axios.get(`${API}/raffles/${id}/participants`)
             .then((res)=> setParticipants(res.data))
-            
     },[]);
 
 
@@ -25,7 +24,7 @@ export default function ParticipantsPage (){
             <input placeholder="Search Here!"></input>
 
             <ul>
-                {participants.map(elem=> <Participant key={elem.id} pId={elem.id} fname={elem.fname} lname={elem.lname} email={elem.email}/>)} 
+                {participants.map(elem=> <Participant key={elem.id} pId={elem.id} fname={elem.fname} lname={elem.lname} email={elem.email} phone={elem.phone}/>)} 
             </ul>
         </div>
     )

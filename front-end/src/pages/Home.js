@@ -6,7 +6,7 @@ export default function Home (){
     let [newRaffleCreated, setNewRaffleCreated] = useState(false)
 
     return(
-        <div>
+        <div className="home-page">
             <NewRaffleForm setNewRaffleCreated = {setNewRaffleCreated}/>
             <Raffles newRaffleCreated={newRaffleCreated} setNewRaffleCreated ={setNewRaffleCreated}/>
         </div>

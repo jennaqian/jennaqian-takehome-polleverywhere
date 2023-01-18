@@ -42,8 +42,8 @@ const getAllParticpants = async (raffle_id)=> {
 const createParticipant = async (body, raffleid) => {
   try {
     const newParticipant = await db.one(
-      "INSERT INTO participants (fname, lname, email, raffleid) VALUES ($1,$2,$3,$4) RETURNING *", 
-      [body.fname, body.lname, body.email, raffleid])
+      "INSERT INTO participants (fname, lname, email, raffleid, phone) VALUES ($1,$2,$3,$4,$5) RETURNING *", 
+      [body.fname, body.lname, body.email, raffleid, body.phone])
     return newParticipant;
   } catch (error) {
     return error

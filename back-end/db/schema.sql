@@ -21,5 +21,6 @@ CREATE TABLE participants (
     ON DELETE CASCADE,
     fname TEXT NOT NULL,
     lname TEXT NOT NULL,
-    email TEXT NOT NULL
+    email TEXT NOT NULL,
+    phone VARCHAR(11)
 );
