@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios"
+import {useNavigate} from "react-router-dom"
 
 const API = process.env.REACT_APP_API_URL;
 
 export default function NewRaffleForm({setNewRaffleCreated}) {
+  const navigate = useNavigate()
   const [raffle, setRaffle] = useState({
     rname: "",
     secret_token: "",
@@ -21,7 +23,8 @@ export default function NewRaffleForm({setNewRaffleCreated}) {
               rname: "",
               secret_token: "",
             }),
-            setNewRaffleCreated(true)
+            setNewRaffleCreated(true),
+            navigate(`/`)
         )
         .catch(error => console.log(error))
   }
