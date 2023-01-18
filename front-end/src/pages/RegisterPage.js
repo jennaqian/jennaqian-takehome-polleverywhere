@@ -51,26 +51,35 @@ export default function RegisterPage (){
     const {fname, lname, email, phone} = participant;
 
     return(
-        <div>
-
+        <div className="reg-div">
             <Navbar id={id}/>
-            <h2>Register to participate in the Raffle!</h2>
+            <h1>Register to participate in the Raffle!</h1>
 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="fname">First Name: </label>
-                <input type="text" id="fname" value={fname} onChange={handleTextChange} required/>
+            <form onSubmit={handleSubmit} className="reg-form">
+                <div>
+                    <label htmlFor="fname">First Name: </label>
+                    <input type="text" id="fname" value={fname} onChange={handleTextChange} required/>
+                </div>
 
-                <label htmlFor="lname">Last Name: </label>
-                <input type="text" id="lname" value={lname} onChange={handleTextChange} required/>
+                <div>
+                    <label htmlFor="lname">Last Name: </label>
+                    <input type="text" id="lname" value={lname} onChange={handleTextChange} required/>
+                </div>
 
-                <label htmlFor="email">Email: </label>
-                <input type="text" id="email" value={email} onChange={handleTextChange} required/>
+                <div>
+                    <label htmlFor="email">Email: </label>
+                    <input type="text" id="email" value={email} onChange={handleTextChange} required/>
+                </div>
 
-                <label htmlFor="phone">Phone: </label>
-                <input type="number" id="phone" value={phone} onChange={handleTextChange} />
+                <div>
+                    <label htmlFor="phone">Phone: </label>
+                    <input type="number" id="phone" value={phone} onChange={handleTextChange} />
+                </div>
 
-                <button>Submit</button>
-                <button onClick={handleReset}>Reset</button>
+                <div>
+                    <button>Submit</button>
+                    <button onClick={handleReset}>Reset</button>
+                </div>
             </form>
 
             {posted ? null: <h3>Please try again!</h3>}

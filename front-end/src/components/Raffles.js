@@ -6,7 +6,7 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Raffles({newRaffleCreated, setNewRaffleCreated}) {
     const [raffles, setRaffles] = useState([]);
-// console.log(newRaffleCreated)
+
     useEffect(()=> {
         axios.get(`${API}/raffles`)
             .then((res) => {
@@ -21,7 +21,7 @@ export default function Raffles({newRaffleCreated, setNewRaffleCreated}) {
     },[newRaffleCreated]);
 
   return (
-    <div>
+    <div className="all-raffles">
       <h2>All Raffles:</h2>
       {raffles.map((elem,i) => <Raffle id = {elem.id} rname = {elem.rname} date_created = {elem.date_created} key={i}/>)}
     </div>

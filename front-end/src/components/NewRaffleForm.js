@@ -36,7 +36,7 @@ export default function NewRaffleForm({setNewRaffleCreated}) {
       <h1>New Raffle:</h1>
 
       <div className="new-raffle-form-input">
-        <div>
+        <div className="input-div">
           <label htmlFor="rname">Raffle Name: *</label>
           <input
             id="rname"
@@ -48,7 +48,7 @@ export default function NewRaffleForm({setNewRaffleCreated}) {
           />
         </div>
 
-        <div>
+        <div className="input-div">
           <label htmlFor="secret_token">Raffle Secret Token: *</label>
           <input
             id="secret_token"
@@ -61,10 +61,10 @@ export default function NewRaffleForm({setNewRaffleCreated}) {
         </div>
       </div>
 
-      <h3>
-        You must remember the Raffle Token because it will be asked when picking
-        a winner
-      </h3>
+      <h4>
+        *You must remember the Raffle Token because it will be asked when picking
+        a winner*
+      </h4>
 
       <button type="submit">Create New Raffle</button>
     </form>
